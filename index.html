@@ -3,118 +3,156 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <meta name="description" content="Meouf: Your one-stop shop for pet grooming, toys, clothes, and food. Stay tuned for our exciting launch!" />
-  <meta name="keywords" content="Meouf, pet supplies, dog grooming, cat toys, pet food, pet clothes" />
-  <meta name="author" content="Meouf Team" />
-  <title>Meouf | Pet Supplies - Coming Soon</title>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Arial&display=swap" />
-  <link rel="icon" href="https://meouf.com/favicon.ico" type="image/x-icon" />
+  <title>Meouf — Coming Soon</title>
   <style>
     body {
       margin: 0;
-      height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: linear-gradient(135deg, #E91E63, #4A90E2, #2c5364);
-      font-family: "Lato", "Arial", sans-serif;
+      font-family: "Segoe UI", Roboto, Arial, sans-serif;
+      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
       color: #fff;
+      line-height: 1.6;
+    }
+
+    header, section {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 40px 20px;
       text-align: center;
     }
-    .box {
-      max-width: 600px;
-      padding: 40px;
-      border-radius: 16px;
-      background: rgba(255, 255, 255, 0.1);
-      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+
+    header {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 80vh;
     }
+
     h1 {
-      font-family: "Lato", sans-serif;
       font-size: 2.8em;
-      font-weight: 700;
       margin-bottom: 0.3em;
     }
+
     p {
-      font-family: "Lato", sans-serif;
       font-size: 1.2em;
-      color: #f0f4f8;
-      margin-bottom: 1.5em;
-    }
-    .contact-links {
-      font-family: "Arial", sans-serif;
-      font-size: 1em;
       color: #d0d8e0;
-      margin: 20px 0;
+      max-width: 700px;
+      margin: 10px auto;
     }
-    .contact-links a {
-      color: #E91E63;
-      text-decoration: none;
-      font-weight: bold;
-    }
-    .contact-links a:hover {
-      color: #C2185B;
-    }
-    .supplier-contact {
-      font-family: "Arial", sans-serif;
-      font-size: 0.9em;
-      color: #b0b8c0;
-      margin-top: 10px;
-    }
-    .supplier-contact a {
-      color: #4A90E2;
-      text-decoration: none;
-    }
-    .supplier-contact a:hover {
-      color: #357ABD;
-    }
-    a.notify-btn {
+
+    a.button {
       display: inline-block;
       margin-top: 20px;
       padding: 12px 24px;
-      background: #E91E63;
+      background: #00b4d8;
       color: #fff;
       text-decoration: none;
       border-radius: 8px;
-      font-family: "Lato", sans-serif;
-      font-weight: 700;
+      font-weight: bold;
       transition: background 0.3s;
     }
-    a.notify-btn:hover {
-      background: #C2185B;
+
+    a.button:hover {
+      background: #0096c7;
     }
-    .social-links {
-      margin-top: 20px;
+
+    .section-title {
+      font-size: 2em;
+      margin: 40px 0 10px;
+      color: #00b4d8;
     }
-    .social-links a {
-      color: #E91E63;
-      text-decoration: none;
-      font-size: 1em;
-      font-family: "Lato", sans-serif;
+
+    .image-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      margin-top: 30px;
     }
-    .social-links a:hover {
-      color: #C2185B;
+
+    .image-grid img {
+      width: 100%;
+      border-radius: 16px;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
     }
-    .logo {
-      max-width: 150px;
-      margin-bottom: 20px;
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 0.9em;
+      color: #aaa;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      background: rgba(0, 0, 0, 0.2);
     }
   </style>
 </head>
 <body>
-  <div class="box">
-    <img src="https://meouf.com/logo.png" alt="Meouf Logo" class="logo" />
-    <h1>🐾 Meouf Pet Supplies - Coming Soon</h1>
-    <p>We're getting ready to pamper your pets with top-notch grooming, toys, clothes, and food. Join the Meouf pack!</p>
-    <div class="contact-links">
-      <p>Contact us: <a href="mailto:hello@meouf.com">Meouf Team &lt;hello@meouf.com&gt;</a></p>
-      <p class="supplier-contact">For suppliers: <a href="mailto:info@meouf.com">Meouf | Pet Supply &lt;info@meouf.com&gt;</a></p>
-    </div>
-    <a href="mailto:hello@meouf.com?subject=Notify%20me%20when%20Meouf%20launches" class="notify-btn">
+
+  <header>
+    <h1>🚀 Meouf.com is Coming Soon</h1>
+    <p>We’re working hard to launch something exciting. Stay tuned!</p>
+    <a href="mailto:hello@meouf.com?subject=Notify%20me%20when%20Meouf%20launches" class="button">
       Notify Me
     </a>
-    <div class="social-links">
-      <a href="https://wa.me/+14389796151">WhatsApp</a>
+
+    <div class="image-grid">
+      <img src="https://images.unsplash.com/photo-1601758123927-198f0a50f3be?auto=format&fit=crop&w=800&q=80" alt="Happy dog">
+      <img src="https://images.unsplash.com/photo-1592194996308-7b43878e84a6?auto=format&fit=crop&w=800&q=80" alt="Cute cat">
     </div>
-  </div>
+  </header>
+
+  <section>
+    <h2 class="section-title">Our Story</h2>
+    <p>
+      Meouf.com is a Montreal-based e-commerce platform launching in 2025, dedicated to premium pet care for cats and dogs. 
+      Inspired by my late grandfather’s deep love for pets, which sparked my lifelong passion for animals, 
+      Meouf.com brings high-quality, sustainable products to pet owners. From a vision rooted in family and care, 
+      we’re building a trusted online destination for pet lovers in Canada and beyond.
+    </p>
+
+    <h2 class="section-title">Mission</h2>
+    <p>
+      To enrich the lives of cats and dogs by providing top-tier, eco-friendly products that make pet care simple, 
+      sustainable, and joyful, while honoring my grandfather’s legacy of love for animals.
+    </p>
+
+    <h2 class="section-title">Values</h2>
+    <p><strong>🐾 Pet-First Philosophy:</strong> Inspired by my grandfather, we prioritize safe, high-quality products that enhance pet well-being.</p>
+    <p><strong>🌱 Sustainability:</strong> We use eco-friendly materials and packaging, partnering with ethical brands.</p>
+    <p><strong>🤝 Community:</strong> Rooted in Montreal, we support animal shelters and foster pet owner connections.</p>
+    <p><strong>🚚 Convenience:</strong> We deliver affordable, innovative solutions for modern pet care.</p>
+
+    <h2 class="section-title">Products & Services</h2>
+    <p>
+      Meouf.com offers curated pet essentials including:
+      <br>• Food & Nutrition — premium organic, grain-free foods and treats  
+      <br>• Toys & Enrichment — interactive toys for stimulation  
+      <br>• Clothing & Accessories — stylish gear for Montreal’s climate  
+      <br>• Beds & Comfort — cozy, durable, and orthopedic options  
+      <br>• Daily Care — grooming, litter, and eco-friendly care products  
+    </p>
+
+    <p>
+      Services include fast shipping (same-day in Montreal), subscriptions, pet care guides, and gift bundles. 
+      A portion of sales supports animal shelters.
+    </p>
+
+    <h2 class="section-title">Our Goals</h2>
+    <p>
+      We aim to be Canada’s leading online pet retailer, expanding with local and sustainable partnerships 
+      while staying true to our Montreal roots. Our vision is to grow internationally within five years, 
+      ensuring every pet thrives and every owner feels supported.
+    </p>
+
+    <p>
+      Visit <a href="https://www.meouf.com" style="color:#00b4d8;">www.meouf.com</a> or contact 
+      <a href="mailto:info@meouf.com" style="color:#00b4d8;">info@meouf.com</a> to join our mission 
+      to celebrate pets and their people.
+    </p>
+  </section>
+
+  <footer>
+    © 2025 Meouf.com — All rights reserved.
+  </footer>
+
 </body>
 </html>
