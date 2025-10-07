@@ -2,21 +2,26 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Meouf — Coming Soon</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Meouf — Exclusive Launch</title>
   <style>
     body {
       margin: 0;
-      font-family: "Segoe UI", Roboto, Arial, sans-serif;
-      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
-      color: #fff;
+      font-family: "Playfair Display", Georgia, serif;
+      background: linear-gradient(135deg, #1c252e, #2e3d4f, #4a5d78);
+      background-attachment: fixed;
+      color: #f0f4f8;
       line-height: 1.6;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      overflow-x: hidden;
     }
 
     header, section {
-      max-width: 900px;
+      max-width: 1100px;
       margin: 0 auto;
-      padding: 40px 20px;
+      padding: 70px 40px;
       text-align: center;
     }
 
@@ -25,135 +30,217 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      min-height: 80vh;
+      flex-grow: 1;
+      position: relative;
+      z-index: 1;
     }
 
     h1 {
-      font-size: 2.8em;
-      margin-bottom: 0.3em;
+      font-size: 4em;
+      margin-bottom: 0.6em;
+      text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.5);
+      color: #d4af37;
+      font-weight: 700;
+      letter-spacing: 2px;
     }
 
     p {
-      font-size: 1.2em;
-      color: #d0d8e0;
-      max-width: 700px;
-      margin: 10px auto;
+      font-size: 1.5em;
+      color: #e0e6ec;
+      max-width: 850px;
+      margin: 25px auto;
+      text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3);
     }
 
     a.button {
       display: inline-block;
-      margin-top: 20px;
-      padding: 12px 24px;
-      background: #00b4d8;
-      color: #fff;
+      margin-top: 35px;
+      padding: 20px 40px;
+      background: linear-gradient(90deg, #d4af37, #c8a53b);
+      color: #1c252e;
       text-decoration: none;
-      border-radius: 8px;
-      font-weight: bold;
-      transition: background 0.3s;
+      border-radius: 15px;
+      font-weight: 600;
+      transition: transform 0.3s, box-shadow 0.3s;
+      box-shadow: 0 8px 20px rgba(212, 175, 55, 0.6);
+      text-transform: uppercase;
+      border: 2px solid #d4af37;
     }
 
     a.button:hover {
-      background: #0096c7;
+      transform: translateY(-3px);
+      box-shadow: 0 10px 25px rgba(212, 175, 55, 0.8);
     }
 
     .section-title {
-      font-size: 2em;
-      margin: 40px 0 10px;
-      color: #00b4d8;
+      font-size: 2.8em;
+      margin: 70px 0 25px;
+      color: #d4af37;
+      text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.4);
+      font-style: italic;
+      letter-spacing: 1px;
     }
 
-    .image-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
-      margin-top: 30px;
+    .carousel {
+      margin-top: 50px;
+      position: relative;
+      max-width: 100%;
+      overflow: hidden;
     }
 
-    .image-grid img {
+    .carousel img {
       width: 100%;
-      border-radius: 16px;
-      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+      max-width: 900px;
+      border-radius: 30px;
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.7);
       object-fit: cover;
-      height: 250px;
+      display: none;
+    }
+
+    .carousel img.active {
+      display: block;
+    }
+
+    .contact-overlay {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: rgba(255, 255, 255, 0.97);
+      padding: 30px 50px;
+      border-radius: 25px;
+      text-align: center;
+      color: #1c252e;
+      font-size: 1.8em;
+      font-weight: 600;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+    }
+
+    .contact-overlay span {
+      display: block;
+      margin: 10px 0;
+      font-family: "Arial", sans-serif;
     }
 
     footer {
       text-align: center;
-      padding: 20px;
-      font-size: 0.9em;
-      color: #aaa;
-      border-top: 1px solid rgba(255, 255, 255, 0.1);
-      background: rgba(0, 0, 0, 0.2);
+      padding: 35px;
+      font-size: 1.2em;
+      color: #c0c8d0;
+      border-top: 3px solid rgba(212, 175, 55, 0.3);
+      background: rgba(0, 0, 0, 0.5);
+      margin-top: auto;
+    }
+
+    @media (max-width: 768px) {
+      h1 { font-size: 2.8em; }
+      p { font-size: 1.2em; }
+      .section-title { font-size: 2.2em; }
+      .contact-overlay { font-size: 1.4em; padding: 20px 30px; }
+      .carousel img { max-width: 100%; }
+      a.button { padding: 15px 30px; }
+    }
+
+    /* Carousel Animation */
+    @keyframes slide {
+      0% { transform: translateX(0); }
+      20% { transform: translateX(-100%); }
+      40% { transform: translateX(-100%); }
+      60% { transform: translateX(-200%); }
+      80% { transform: translateX(-200%); }
+      100% { transform: translateX(0); }
+    }
+
+    .carousel-inner {
+      display: flex;
+      width: 300%;
+      animation: slide 15s infinite;
     }
   </style>
+  <script>
+    // Carousel functionality
+    window.onload = function() {
+      const images = document.querySelectorAll('.carousel img');
+      let index = 0;
+
+      function showNextImage() {
+        images.forEach(img => img.classList.remove('active'));
+        images[index].classList.add('active');
+        index = (index + 1) % images.length;
+      }
+
+      showNextImage();
+      setInterval(showNextImage, 5000); // Change image every 5 seconds
+    };
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
   <header>
-    <h1>🐾 Meouf.com is Coming Soon</h1>
-    <p>We’re working hard to launch something exciting for all pet lovers. Stay tuned!</p>
-    <a href="mailto:hello@meouf.com?subject=Notify%20me%20when%20Meouf%20launches" class="button">
-      Notify Me
+    <h1>🐾 Meouf — Exclusive Launch</h1>
+    <p>Elevate your pet’s lifestyle with our premier collection, launching soon. Secure your invitation to a world of luxury pet care.</p>
+    <a href="mailto:hello@meouf.com?subject=Reserve%20my%20exclusive%20invite" class="button">
+      Claim Invitation
     </a>
 
-    <div class="image-grid">
-      <img src="https://images.unsplash.com/photo-1560807707-8cc77767d783?auto=format&fit=crop&w=800&q=80" alt="Happy dog">
-      <img src="https://images.unsplash.com/photo-1595433707802-6b2626ef1e8f?auto=format&fit=crop&w=800&q=80" alt="Cute cat">
+    <div class="carousel">
+      <div class="carousel-inner">
+        <img src="https://images.unsplash.com/photo-1548242056-1e9d0c3e8d93?auto=format&fit=crop&w=900&q=80" alt="Regal cat" class="active">
+        <img src="https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?auto=format&fit=crop&w=900&q=80" alt="Sophisticated dog">
+        <img src="https://images.unsplash.com/photo-1601758123897-3c0f0e4e2c7a?auto=format&fit=crop&w=900&q=80" alt="Elegant pets">
+      </div>
+      <div class="contact-overlay">
+        <span>hello@meouf.com</span>
+        <span>For order inquiries, please contact us</span>
+      </div>
     </div>
   </header>
 
   <section>
-    <h2 class="section-title">Our Story</h2>
+    <h2 class="section-title">Our Heritage</h2>
     <p>
-      Meouf.com is a Montreal-based e-commerce platform launching in 2025, dedicated to premium pet care for cats and dogs. 
-      Inspired by my late grandfather’s deep love for pets, which sparked my lifelong passion for animals, 
-      Meouf.com brings high-quality, sustainable products to pet owners. From a vision rooted in family and care, 
-      we’re building a trusted online destination for pet lovers in Canada and beyond.
+      Meouf, originating from Montreal, launches in 2025 as the epitome of premium pet care for cats and dogs. Inspired by my grandfather’s enduring passion for animals, we deliver an exquisite range of sustainable, luxury products for discerning pet owners worldwide.
     </p>
 
-    <h2 class="section-title">Mission</h2>
+    <h2 class="section-title">Our Commitment</h2>
     <p>
-      To enrich the lives of cats and dogs by providing top-tier, eco-friendly products that make pet care simple, 
-      sustainable, and joyful, while honoring my grandfather’s legacy of love for animals.
+      To redefine luxury pet care with innovative, eco-conscious solutions that honor a legacy of excellence and devotion.
     </p>
 
-    <h2 class="section-title">Values</h2>
-    <p><strong>🐾 Pet-First Philosophy:</strong> Inspired by my grandfather, we prioritize safe, high-quality products that enhance pet well-being.</p>
-    <p><strong>🌱 Sustainability:</strong> We use eco-friendly materials and packaging, partnering with ethical brands.</p>
-    <p><strong>🤝 Community:</strong> Rooted in Montreal, we support animal shelters and foster pet owner connections.</p>
-    <p><strong>🚚 Convenience:</strong> We deliver affordable, innovative solutions for modern pet care.</p>
+    <h2 class="section-title">Our Pillars</h2>
+    <p><strong>🐾 Premier Quality:</strong> Unrivaled standards rooted in heritage.</p>
+    <p><strong>🌿 Eco-Luxury:</strong> Sustainable materials from elite global partners.</p>
+    <p><strong>🤝 Elite Network:</strong> Supporting premier animal welfare initiatives.</p>
+    <p><strong>🚚 Signature Service:</strong> Complimentary expedited delivery for members.</p>
 
-    <h2 class="section-title">Products & Services</h2>
+    <h2 class="section-title">Luxury Collection</h2>
     <p>
-      Meouf.com offers curated pet essentials including:
-      <br>• Food & Nutrition — premium organic, grain-free foods and treats  
-      <br>• Toys & Enrichment — interactive toys for stimulation  
-      <br>• Clothing & Accessories — stylish gear for Montreal’s climate  
-      <br>• Beds & Comfort — cozy, durable, and orthopedic options  
-      <br>• Daily Care — grooming, litter, and eco-friendly care products  
+      Explore our curated masterpieces:
+      <br>• Gourmet Cuisine — artisanal, organic diets and treats  
+      <br>• Bespoke Toys — handcrafted for enrichment  
+      <br>• Haute Couture — seasonal pet fashion  
+      <br>• Opulent Beds — custom, orthopedic designs  
+      <br>• Spa Essentials — premium grooming rituals  
     </p>
 
     <p>
-      Services include fast shipping (same-day in Montreal), subscriptions, pet care guides, and gift bundles. 
-      A portion of sales supports animal shelters.
+      Indulge in exclusive services: priority shipping, tailored subscriptions, concierge care advice, and limited-edition collections. A portion of proceeds supports elite animal charities.
     </p>
 
-    <h2 class="section-title">Our Goals</h2>
+    <h2 class="section-title">Our Vision</h2>
     <p>
-      We aim to be Canada’s leading online pet retailer, expanding with local and sustainable partnerships 
-      while staying true to our Montreal roots. Our vision is to grow internationally within five years, 
-      ensuring every pet thrives and every owner feels supported.
+      To establish Meouf as the global leader in luxury pet care, expanding through prestigious partnerships while anchored in Montreal. Within five years, we aim for an international footprint, ensuring every pet experiences unparalleled splendor.
     </p>
 
     <p>
-      Visit <a href="https://www.meouf.com" style="color:#00b4d8;">www.meouf.com</a> or contact 
-      <a href="mailto:info@meouf.com" style="color:#00b4d8;">info@meouf.com</a> to join our mission 
-      to celebrate pets and their people.
+      Reserve your place at <a href="https://www.meouf.com" style="color:#d4af37;">www.meouf.com</a> or contact 
+      <a href="mailto:info@meouf.com" style="color:#d4af37;">info@meouf.com</a> to join this distinguished legacy.
     </p>
   </section>
 
   <footer>
-    © 2025 Meouf.com — All rights reserved.
+    © 2025 Meouf — All rights reserved. | <a href="mailto:hello@meouf.com" style="color:#d4af37;">Contact Us</a>
   </footer>
 
 </body>
