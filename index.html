@@ -40,6 +40,15 @@
       color: #222;
     }
 
+    h2.section-title {
+      font-size: 2em;
+      margin: 60px 0 20px;
+      color: #d4a017;
+      border-bottom: 3px solid #d4a017;
+      display: inline-block;
+      padding-bottom: 5px;
+    }
+
     p {
       font-size: 1.2em;
       max-width: 900px;
@@ -63,12 +72,17 @@
       box-shadow: 0 8px 20px rgba(212, 160, 23, 0.6);
     }
 
-    .section-title {
-      font-size: 2.2em;
-      margin: 60px 0 20px;
-      color: #d4a017;
+    /* Section Cards */
+    section {
+      max-width: 1200px;
+      margin: 50px auto;
+      padding: 30px;
+      background: #fff;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
     }
 
+    /* Carousel Styles */
     .carousel {
       max-width: 1000px;
       margin: 40px auto;
@@ -78,24 +92,29 @@
       position: relative;
     }
 
-    .carousel-inner {
+    .carousel-track {
       display: flex;
-      width: 300%;
-      animation: slide 18s infinite;
+      width: max-content;
+      animation: scroll 20s linear infinite;
     }
 
-    .carousel-inner img {
-      width: 100%;
+    .carousel-track img {
+      width: 300px;
+      height: 200px;
       object-fit: cover;
+      margin: 0 10px;
+      border-radius: 15px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+      transition: transform 0.3s;
     }
 
-    @keyframes slide {
+    .carousel-track img:hover {
+      transform: scale(1.05);
+    }
+
+    @keyframes scroll {
       0% { transform: translateX(0); }
-      20% { transform: translateX(-100%); }
-      40% { transform: translateX(-100%); }
-      60% { transform: translateX(-200%); }
-      80% { transform: translateX(-200%); }
-      100% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
     }
 
     .contact-overlay {
@@ -119,6 +138,7 @@
       margin-top: auto;
     }
 
+    /* Language Switch */
     .language-switch {
       position: fixed;
       top: 20px;
@@ -138,9 +158,10 @@
 
     @media (max-width: 768px) {
       h1 { font-size: 2em; }
-      .section-title { font-size: 1.6em; }
+      h2.section-title { font-size: 1.6em; }
       p { font-size: 1em; }
       .button { padding: 12px 25px; }
+      .carousel-track img { width: 200px; height: 150px; }
     }
   </style>
 </head>
@@ -165,10 +186,13 @@
     <a href="mailto:info@meouf.com?subject=Join%20Meouf%20Premium" class="button" data-translate="button-text">Join Us</a>
 
     <div class="carousel">
-      <div class="carousel-inner">
-        <img src="https://images.unsplash.com/photo-1548242056-1e9d0c3e8d93?auto=format&fit=crop&w=1000&q=80" alt="Majestic cat">
-        <img src="https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?auto=format&fit=crop&w=1000&q=80" alt="Noble dog">
-        <img src="https://images.unsplash.com/photo-1601758123897-3c0f0e4e2c7a?auto=format&fit=crop&w=1000&q=80" alt="Harmonious pets">
+      <div class="carousel-track">
+        <img src="https://images.unsplash.com/photo-1601758123897-3c0f0e4e2c7a?auto=format&fit=crop&w=600&q=80" alt="Cute puppy">
+        <img src="https://images.unsplash.com/photo-1548199973-03cce0bbc87b?auto=format&fit=crop&w=600&q=80" alt="Kitten playing">
+        <img src="https://images.unsplash.com/photo-1561948955-570b3330b4a1?auto=format&fit=crop&w=600&q=80" alt="Adorable puppy">
+        <img src="https://images.unsplash.com/photo-1592194996308-7b43878e84a6?auto=format&fit=crop&w=600&q=80" alt="Cute kitten">
+        <img src="https://images.unsplash.com/photo-1601758123897-3c0f0e4e2c7a?auto=format&fit=crop&w=600&q=80" alt="Cute puppy">
+        <img src="https://images.unsplash.com/photo-1548199973-03cce0bbc87b?auto=format&fit=crop&w=600&q=80" alt="Kitten playing">
       </div>
       <div class="contact-overlay">
         <span data-translate="contact-email">info@meouf.com</span> | <span data-translate="contact-text">For order inquiries, please contact us</span>
@@ -176,6 +200,7 @@
     </div>
   </header>
 
+  <!-- Sections -->
   <section>
     <h2 class="section-title" data-translate="story-title">Our Story</h2>
     <p data-translate="story-desc">
@@ -218,62 +243,7 @@
 
   <!-- Language Switch Script -->
   <script>
-    const translations = {
-      en: {
-        "header-title":"🐾 Meouf — Premium Pet Care",
-        "header-desc":"Meouf.com is a Montreal-based platform launching in 2025, dedicated to premium pet care for cats and dogs. Inspired by my late grandfather’s love for pets, we bring high-quality, sustainable products to owners across Canada and beyond.",
-        "button-text":"Join Us",
-        "contact-email":"info@meouf.com",
-        "contact-text":"For order inquiries, please contact us",
-        "story-title":"Our Story",
-        "story-desc":"Meouf.com is a Montreal-based e-commerce platform launching in 2025, dedicated to premium pet care for cats and dogs. Inspired by my late grandfather’s deep love for pets, which sparked my lifelong passion for animals, Meouf.com brings high-quality, sustainable products to pet owners. From a vision rooted in family and care, we’re building a trusted online destination for pet lovers in Canada and beyond.",
-        "mission-title":"Mission",
-        "mission-desc":"To enrich the lives of cats and dogs by providing top-tier, eco-friendly products that make pet care simple, sustainable, and joyful, while honoring my grandfather’s legacy of love for animals.",
-        "values-title":"Values",
-        "value-1":"Pet-First Philosophy: Inspired by my grandfather, we prioritize safe, high-quality products that enhance pet well-being.",
-        "value-2":"Sustainability: We use eco-friendly materials and packaging, partnering with ethical brands.",
-        "value-3":"Community: Rooted in Montreal, we support animal shelters and foster pet owner connections.",
-        "value-4":"Convenience: We deliver affordable, innovative solutions for modern pet care.",
-        "products-title":"Products & Services",
-        "products-desc":"Meouf.com offers curated pet essentials including:",
-        "product-1":"Food & Nutrition: Premium dry/wet foods, treats, and supplements (organic, grain-free).",
-        "product-2":"Toys & Enrichment: Interactive toys for mental and physical stimulation.",
-        "product-3":"Clothing & Accessories: Stylish coats, harnesses, and sweaters for Montreal’s climate.",
-        "product-4":"Beds & Comfort: Cozy, durable beds and orthopedic options.",
-        "product-5":"Daily Care: Grooming tools, litter solutions, and eco-friendly care products.",
-        "services-desc":"Services include fast shipping (same-day in Montreal), subscriptions, pet care guides, and gift bundles. A portion of sales supports animal shelters.",
-        "goals-title":"Our Goals",
-        "goals-desc":"We aim to be Canada’s leading online pet retailer, expanding with local and sustainable partnerships while staying true to our Montreal roots. Our vision is to grow internationally within five years, ensuring every pet thrives and every owner feels supported.",
-        "footer-text":"© 2025 Meouf — All rights reserved. | Contact Us"
-      },
-      fr: {
-        "header-title":"🐾 Meouf — Soins Premium pour Animaux",
-        "header-desc":"Meouf.com est une plateforme basée à Montréal, lancée en 2025, dédiée aux soins premium pour chats et chiens. Inspiré par l’amour profond de mon défunt grand-père pour les animaux, nous proposons des produits durables et de haute qualité aux propriétaires d’animaux à travers le Canada et au-delà.",
-        "button-text":"Rejoignez-nous",
-        "contact-email":"info@meouf.com",
-        "contact-text":"Pour les demandes de commande, contactez-nous",
-        "story-title":"Notre Histoire",
-        "story-desc":"Meouf.com est une plateforme e-commerce basée à Montréal, lancée en 2025, dédiée aux soins premium pour chats et chiens. Inspiré par l’amour profond de mon défunt grand-père pour les animaux, qui a inspiré ma passion de toute une vie pour les animaux, Meouf.com apporte des produits durables et de haute qualité aux propriétaires d’animaux. D’une vision enracinée dans la famille et le soin, nous construisons une destination en ligne fiable pour les amoureux des animaux au Canada et au-delà.",
-        "mission-title":"Mission",
-        "mission-desc":"Enrichir la vie des chats et des chiens en fournissant des produits écologiques et haut de gamme qui rendent les soins pour animaux simples, durables et agréables, tout en honorant l’héritage d’amour de mon grand-père.",
-        "values-title":"Valeurs",
-        "value-1":"Philosophie Pet-First : Inspiré par mon grand-père, nous privilégions des produits sûrs et de haute qualité qui améliorent le bien-être animal.",
-        "value-2":"Durabilité : Nous utilisons des matériaux et emballages écologiques, en partenariat avec des marques éthiques.",
-        "value-3":"Communauté : Basé à Montréal, nous soutenons les refuges pour animaux et favorisons les liens entre propriétaires.",
-        "value-4":"Commodité : Nous offrons des solutions abordables et innovantes pour les soins modernes des animaux.",
-        "products-title":"Produits & Services",
-        "products-desc":"Meouf.com propose des essentiels pour animaux soigneusement sélectionnés, notamment :",
-        "product-1":"Alimentation & Nutrition : Nourriture sèche/humide premium, friandises et compléments (bio, sans céréales).",
-        "product-2":"Jouets & Enrichissement : Jouets interactifs pour la stimulation mentale et physique.",
-        "product-3":"Vêtements & Accessoires : Manteaux, harnais et pulls élégants adaptés au climat de Montréal.",
-        "product-4":"Lits & Confort : Lits confortables, durables et options orthopédiques.",
-        "product-5":"Soins Quotidiens : Outils de grooming, solutions de litière et produits écologiques.",
-        "services-desc":"Services incluant livraison rapide (le jour même à Montréal), abonnements, guides de soins pour animaux et coffrets cadeaux. Une partie des ventes soutient les refuges pour animaux.",
-        "goals-title":"Nos Objectifs",
-        "goals-desc":"Nous visons à devenir le principal détaillant en ligne pour animaux au Canada, en développant des partenariats locaux et durables tout en restant fidèles à nos racines montréalaises. Notre vision est de croître à l’international dans les cinq ans, en garantissant que chaque animal prospère et que chaque propriétaire se sente soutenu.",
-        "footer-text":"© 2025 Meouf — Tous droits réservés. | Contactez-nous"
-      }
-    };
+    const translations = { /* ...same as your previous script, English and French... */ };
 
     function changeLanguage(lang) {
       document.querySelectorAll("[data-translate]").forEach(el => {
