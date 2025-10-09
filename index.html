@@ -25,7 +25,7 @@
       font-family: "Playfair Display", Georgia, serif;
     }
 
-    /* Animated Background Patterns */
+    /* Updated Animated Background Patterns */
     .bg-decoration {
       position: fixed;
       width: 100%;
@@ -34,20 +34,20 @@
       left: 0;
       z-index: -1;
       overflow: hidden;
-      background: linear-gradient(135deg, #fef8f0 0%, #fff5eb 50%, #fef0e6 100%);
+      background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 50%, #ffafbd 100%); /* More vibrant gradient */
     }
 
     .floating-shape {
       position: absolute;
       border-radius: 50%;
-      opacity: 0.4;
+      opacity: 0.5;
       animation: floatShape 20s infinite ease-in-out;
     }
 
     .shape1 {
       width: 300px;
       height: 300px;
-      background: radial-gradient(circle, #ffd4a8 0%, transparent 70%);
+      background: radial-gradient(circle, #ffafbd 0%, transparent 70%);
       top: 10%;
       left: -100px;
       animation-delay: 0s;
@@ -56,7 +56,7 @@
     .shape2 {
       width: 400px;
       height: 400px;
-      background: radial-gradient(circle, #ffe4c4 0%, transparent 70%);
+      background: radial-gradient(circle, #fcb69f 0%, transparent 70%);
       top: 50%;
       right: -150px;
       animation-delay: 5s;
@@ -65,7 +65,7 @@
     .shape3 {
       width: 250px;
       height: 250px;
-      background: radial-gradient(circle, #f5cba7 0%, transparent 70%);
+      background: radial-gradient(circle, #ffecd2 0%, transparent 70%);
       bottom: 10%;
       left: 30%;
       animation-delay: 10s;
@@ -77,16 +77,45 @@
       66% { transform: translate(-30px, 30px) scale(0.9); }
     }
 
+    /* Brighter Paw Prints and New Pet Animations */
     .paw-print {
       position: absolute;
       font-size: 50px;
-      opacity: 0.08;
+      opacity: 0.3; /* Increased opacity for brighter paw prints */
+      color: #e59866;
       animation: pawFloat 25s infinite;
     }
 
     @keyframes pawFloat {
-      0%, 100% { transform: translateY(0) rotate(0deg); opacity: 0.08; }
-      50% { transform: translateY(-40px) rotate(15deg); opacity: 0.12; }
+      0%, 100% { transform: translateY(0) rotate(0deg); opacity: 0.3; }
+      50% { transform: translateY(-40px) rotate(15deg); opacity: 0.5; }
+    }
+
+    .dog-bone {
+      position: absolute;
+      font-size: 40px;
+      opacity: 0.4;
+      color: #d4805f;
+      animation: boneSpin 15s infinite linear;
+    }
+
+    @keyframes boneSpin {
+      0% { transform: rotate(0deg) translateY(0); }
+      50% { transform: rotate(180deg) translateY(-30px); }
+      100% { transform: rotate(360deg) translateY(0); }
+    }
+
+    .pet-icon {
+      position: absolute;
+      font-size: 45px;
+      opacity: 0.35;
+      color: #f5cba7;
+      animation: bouncePet 10s infinite ease-in-out;
+    }
+
+    @keyframes bouncePet {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-20px); }
     }
 
     /* Navigation with Glass Effect */
@@ -920,6 +949,10 @@
     <div class="paw-print" style="top: 65%; left: 75%; animation-delay: 3s;">🐾</div>
     <div class="paw-print" style="top: 35%; left: 85%; animation-delay: 6s;">🐾</div>
     <div class="paw-print" style="top: 85%; left: 20%; animation-delay: 9s;">🐾</div>
+    <div class="dog-bone" style="top: 25%; left: 20%; animation-delay: 2s;">🦴</div>
+    <div class="dog-bone" style="top: 75%; left: 70%; animation-delay: 7s;">🦴</div>
+    <div class="pet-icon" style="top: 40%; left: 15%; animation-delay: 4s;">🐶</div>
+    <div class="pet-icon" style="top: 60%; left: 80%; animation-delay: 8s;">🐱</div>
   </div>
 
   <!-- Navigation -->
@@ -956,7 +989,7 @@
     </p>
 
     <div class="cta-buttons">
-      <a href="mailto:info@meouf.com?subject=Join%20Meouf%20Premium" class="button" data-translate="button-text">
+      <a href="mailto:hello@meouf.com?subject=Join%20Meouf%20Premium" class="button" data-translate="button-text">
         <span>✨</span> Join Our Community
       </a>
       <a href="#products" class="button button-secondary" data-translate="button-explore">
@@ -1030,7 +1063,7 @@
   <div class="contact-card" id="contact">
     <h3 data-translate="contact-title">Let's Connect!</h3>
     <div class="contact-info">
-      <p>📧 info@meouf.com</p>
+      <p>📧 hello@meouf.com</p>
       <p>📍 Montreal, Quebec, Canada</p>
       <p data-translate="contact-desc">We'd love to hear from you. Get in touch for orders, partnerships, or just to say hello!</p>
     </div>
@@ -1177,7 +1210,8 @@
         "newsletter-desc":"Abonnez-vous pour des offres exclusives, des conseils et un accès anticipé aux nouveaux produits",
         "subscribe-button":"S'abonner",
         "contact-title":"Connectons-nous !",
-        "contact-desc":"Nous aimerions avoir de vos nouvelles. Contactez-nous pour des commandes, partenariats, ou juste pour dire bonjour !",
+        "contact-desc":"Nous aimerions avoir de vos nouvelles. Contactez-nous pour des commandes, partenariats, ou juste pour dire bon视角
+
         "footer-shop":"Boutique",
         "footer-cats":"Pour Chats 🐱",
         "footer-dogs":"Pour Chiens 🐶",
@@ -1207,8 +1241,8 @@
 
       const button = document.querySelector(".button");
       button.href = lang === 'fr' 
-        ? "mailto:info@meouf.com?subject=Rejoignez%20Meouf%20Premium"
-        : "mailto:info@meouf.com?subject=Join%20Meouf%20Premium";
+        ? "mailto:hello@meouf.com?subject=Rejoignez%20Meouf%20Premium"
+        : "mailto:hello@meouf.com?subject=Join%20Meouf%20Premium";
     }
 
     // Animated Counter
