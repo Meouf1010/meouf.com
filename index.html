@@ -351,6 +351,48 @@
       font-weight: 600;
     }
 
+    /* Contact Section */
+    .contact-section {
+      max-width: 1000px;
+      margin: 100px auto;
+      padding: 60px;
+      background: #FFFFFF;
+      border-radius: 30px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+
+    .contact-section h2 {
+      font-family: "Lora", serif;
+      font-size: 2.5em;
+      color: #333333;
+      margin-bottom: 20px;
+    }
+
+    .contact-section p {
+      font-size: 1.2em;
+      color: #555555;
+      margin-bottom: 20px;
+    }
+
+    .contact-details {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    .contact-details a {
+      color: #F28C7F;
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.3s;
+    }
+
+    .contact-details a:hover {
+      color: #E8D3A3;
+    }
+
     /* Footer */
     footer {
       background: #333333;
@@ -413,7 +455,8 @@
       }
       .story-section,
       .products-section,
-      .share-story-section {
+      .share-story-section,
+      .contact-section {
         padding: 40px 20px;
       }
     }
@@ -462,7 +505,7 @@
     <h1 class="lora" data-translate="header-title">Meouf Pet Supplies</h1>
     <p class="hero-desc" data-translate="header-desc">Premium pet care, delivered worldwide. Eco-friendly, innovative, and made with love.</p>
     <div class="cta-buttons">
-      <a href="mailto:hello@meouf.com" class="button" data-translate="button-text">Join Our Community</a>
+      <a href="mailto:hello@meouf.com?subject=Product%20Inquiry%20from%20Meouf.com&body=Hello,%20I%20am%20interested%20in%20learning%20more%20about%20your%20products.%20Please%20provide%20details%20on%20your%20upcoming%20pet%20supplies." class="button" data-translate="button-text">Join Our Community</a>
       <a href="#products" class="button button-secondary" data-translate="button-explore">Explore Products</a>
     </div>
   </header>
@@ -533,6 +576,16 @@
     <p id="storyConfirmation" data-translate="share-confirmation">Thank you for sharing your story! We’ll review it and may feature it on our site.</p>
   </section>
 
+  <!-- Contact Section -->
+  <section id="contact" class="contact-section">
+    <h2 class="lora" data-translate="contact-title">Contact Us</h2>
+    <p data-translate="contact-desc">Get in touch with us for product inquiries, support, or just to say hello!</p>
+    <div class="contact-details">
+      <p><strong data-translate="contact-email-label">Email:</strong> <a href="mailto:hello@meouf.com" data-translate="contact-email">hello@meouf.com</a></p>
+      <p><strong data-translate="contact-phone-label">Phone/WhatsApp:</strong> <a href="tel:+14389796151" data-translate="contact-phone">+1 (438) 979-6151</a></p>
+    </div>
+  </section>
+
   <!-- Footer -->
   <footer>
     <div class="footer-content">
@@ -594,6 +647,12 @@
         "share-photo": "Upload a Pet Photo (optional)",
         "share-submit": "Submit Story",
         "share-confirmation": "Thank you for sharing your story! We’ll review it and may feature it on our site.",
+        "contact-title": "Contact Us",
+        "contact-desc": "Get in touch with us for product inquiries, support, or just to say hello!",
+        "contact-email-label": "Email:",
+        "contact-email": "hello@meouf.com",
+        "contact-phone-label": "Phone/WhatsApp:",
+        "contact-phone": "+1 (438) 979-6151",
         "footer-shop": "Shop",
         "footer-cats": "For Cats",
         "footer-dogs": "For Dogs",
@@ -636,6 +695,12 @@
         "share-photo": "Télécharger une Photo de l’Animal (facultatif)",
         "share-submit": "Soumettre l’Histoire",
         "share-confirmation": "Merci d’avoir partagé votre histoire ! Nous la examinerons et pourrions la présenter sur notre site.",
+        "contact-title": "Contactez-Nous",
+        "contact-desc": "Contactez-nous pour des demandes de produits, du soutien ou simplement pour dire bonjour !",
+        "contact-email-label": "E-mail :",
+        "contact-email": "hello@meouf.com",
+        "contact-phone-label": "Téléphone/WhatsApp :",
+        "contact-phone": "+1 (438) 979-6151",
         "footer-shop": "Boutique",
         "footer-cats": "Pour Chats",
         "footer-dogs": "Pour Chiens",
@@ -678,8 +743,14 @@
         "share-photo": "Subir una Foto de la Mascota (opcional)",
         "share-submit": "Enviar Historia",
         "share-confirmation": "¡Gracias por compartir tu historia! La revisaremos y podríamos presentarla en nuestro sitio.",
+        "contact-title": "Contáctanos",
+        "contact-desc": "Ponte en contacto con nosotros para consultas sobre productos, soporte o simplemente para saludar.",
+        "contact-email-label": "Correo Electrónico:",
+        "contact-email": "hello@meouf.com",
+        "contact-phone-label": "Teléfono/WhatsApp:",
+        "contact-phone": "+1 (438) 979-6151",
         "footer-shop": "Tienda",
-        "footer-cats": "Para G Favos",
+        "footer-cats": "Para Gatos",
         "footer-dogs": "Para Perros",
         "footer-shipping": "Envío Global",
         "footer-support": "Soporte",
@@ -718,4 +789,3 @@
   </script>
 </body>
 </html>
-
