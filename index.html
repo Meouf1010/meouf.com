@@ -185,7 +185,7 @@
       color: white;
     }
 
-    /* Share Your Pet Story Section */
+    /* Story Section */
     .story-section {
       max-width: 1000px;
       margin: 100px auto;
@@ -204,6 +204,82 @@
     }
 
     .story-section p {
+      font-size: 1.2em;
+      color: #555555;
+      margin-bottom: 30px;
+    }
+
+    .content-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      margin-top: 40px;
+    }
+
+    .card {
+      padding: 30px;
+      background: #E8F3ED;
+      border-radius: 20px;
+      transition: transform 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .card h3 {
+      font-family: "Lora", serif;
+      font-size: 1.8em;
+      color: #F28C7F;
+      margin-bottom: 15px;
+    }
+
+    /* Products Section */
+    .products-section {
+      max-width: 1000px;
+      margin: 100px auto;
+      padding: 60px;
+      background: #FFFFFF;
+      border-radius: 30px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+
+    .products-section ul {
+      list-style: none;
+      text-align: left;
+      margin-top: 20px;
+    }
+
+    .products-section li {
+      padding: 15px 0;
+      font-size: 1.1em;
+      border-bottom: 1px solid #E8F3ED;
+    }
+
+    .products-section li:last-child {
+      border-bottom: none;
+    }
+
+    /* Share Your Pet Story Section */
+    .share-story-section {
+      max-width: 1000px;
+      margin: 100px auto;
+      padding: 60px;
+      background: #FFFFFF;
+      border-radius: 30px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+
+    .share-story-section h2 {
+      font-family: "Lora", serif;
+      font-size: 2.5em;
+      color: #333333;
+      margin-bottom: 20px;
+    }
+
+    .share-story-section p {
       font-size: 1.2em;
       color: #555555;
       margin-bottom: 30px;
@@ -335,7 +411,9 @@
       .cta-buttons {
         flex-direction: column;
       }
-      .story-section {
+      .story-section,
+      .products-section,
+      .share-story-section {
         padding: 40px 20px;
       }
     }
@@ -366,8 +444,6 @@
           <option value="en">English</option>
           <option value="fr">Français</option>
           <option value="es">Español</option>
-          <option value="de">Deutsch</option>
-          <option value="zh">简体中文</option>
         </select>
       </div>
       <div class="currency-switch">
@@ -375,7 +451,6 @@
           <option value="CAD">CAD</option>
           <option value="USD">USD</option>
           <option value="EUR">EUR</option>
-          <option value="AUD">AUD</option>
         </select>
       </div>
     </div>
@@ -387,14 +462,46 @@
     <h1 class="lora" data-translate="header-title">Meouf Pet Supplies</h1>
     <p class="hero-desc" data-translate="header-desc">Premium pet care, delivered worldwide. Eco-friendly, innovative, and made with love.</p>
     <div class="cta-buttons">
-      <a href="mailto:hello@meouf.com" class="button" data-translate="button-text">✨ Join Our Community</a>
-      <a href="#products" class="button button-secondary" data-translate="button-explore">🛍️ Explore Products</a>
+      <a href="mailto:hello@meouf.com" class="button" data-translate="button-text">Join Our Community</a>
+      <a href="#products" class="button button-secondary" data-translate="button-explore">Explore Products</a>
     </div>
   </header>
 
+  <!-- Our Story Section -->
+  <section id="story" class="story-section">
+    <h2 class="lora" data-translate="story-title">Our Story</h2>
+    <p data-translate="story-desc">Meouf.com is a Montreal-based platform launching in 2025, dedicated to premium pet care for cats and dogs. Inspired by my late grandfather's love for pets, we bring high-quality, sustainable products to owners across Canada and beyond.</p>
+    <div class="content-grid">
+      <div class="card">
+        <h3 data-translate="mission-title">Our Mission</h3>
+        <p data-translate="mission-desc">To enrich the lives of cats and dogs by providing top-tier, eco-friendly products that make pet care simple, sustainable, and joyful, while honoring my grandfather's legacy of love for animals.</p>
+      </div>
+      <div class="card">
+        <h3 data-translate="values-title">Core Values</h3>
+        <p data-translate="value-1">Pet-First Philosophy: Inspired by my grandfather, we prioritize safe, high-quality products that enhance pet well-being.</p>
+      </div>
+      <div class="card">
+        <h3 data-translate="sustainability-title">Sustainability</h3>
+        <p data-translate="value-2">We use eco-friendly materials and packaging, partnering with ethical brands to protect our planet for future generations.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Products Section -->
+  <section id="products" class="products-section">
+    <h2 class="lora" data-translate="products-title">Upcoming Products</h2>
+    <p data-translate="products-desc">Discover our premium pet essentials, launching in 2025:</p>
+    <ul>
+      <li data-translate="product-1">Premium Canadian-Made Pet Food: Offering the highest quality, locally produced pet food to ensure safety, nutrition, and support for Canadian businesses.</li>
+      <li data-translate="product-2">Eco-Friendly, Sustainable Toys: Providing environmentally responsible and durable toys that are safe for pets and kind to the planet.</li>
+      <li data-translate="product-3">Innovative GPS Pet Tracking: Advanced GPS controller devices so owners can effortlessly track their pets anywhere for peace of mind.</li>
+      <li data-translate="product-4">Space-Saving, Versatile Bedding: Compact, multi-use bedding designed for both homes and cars, ideal for urban pet owners with limited space.</li>
+    </ul>
+  </section>
+
   <!-- Share Your Pet Story Section -->
-  <section id="share-story" class="story-section">
-    <h2 class="lora" data-translate="share-title">Share Your Pet Story 🐾</h2>
+  <section id="share-story" class="share-story-section">
+    <h2 class="lora" data-translate="share-title">Share Your Pet Story</h2>
     <p data-translate="share-desc">We’d love to hear about your furry friend’s adventures! Share your story and inspire pet lovers worldwide.</p>
     <form id="storyForm" class="story-form">
       <div class="form-group">
@@ -430,7 +537,7 @@
   <footer>
     <div class="footer-content">
       <div class="footer-section">
-        <h4 class="lora">🐾 Meouf</h4>
+        <h4 class="lora">Meouf</h4>
         <p data-translate="footer-about">Premium pet supplies for cats and dogs, delivered globally.</p>
         <div class="social-links">
           <a href="#" aria-label="Facebook">📘</a>
@@ -463,6 +570,20 @@
         "nav-products": "Products",
         "nav-share": "Share Your Story",
         "nav-contact": "Contact",
+        "story-title": "Our Story",
+        "story-desc": "Meouf.com is a Montreal-based platform launching in 2025, dedicated to premium pet care for cats and dogs. Inspired by my late grandfather's love for pets, we bring high-quality, sustainable products to owners across Canada and beyond.",
+        "mission-title": "Our Mission",
+        "mission-desc": "To enrich the lives of cats and dogs by providing top-tier, eco-friendly products that make pet care simple, sustainable, and joyful, while honoring my grandfather's legacy of love for animals.",
+        "values-title": "Core Values",
+        "value-1": "Pet-First Philosophy: Inspired by my grandfather, we prioritize safe, high-quality products that enhance pet well-being.",
+        "sustainability-title": "Sustainability",
+        "value-2": "We use eco-friendly materials and packaging, partnering with ethical brands to protect our planet for future generations.",
+        "products-title": "Upcoming Products",
+        "products-desc": "Discover our premium pet essentials, launching in 2025:",
+        "product-1": "Premium Canadian-Made Pet Food: Offering the highest quality, locally produced pet food to ensure safety, nutrition, and support for Canadian businesses.",
+        "product-2": "Eco-Friendly, Sustainable Toys: Providing environmentally responsible and durable toys that are safe for pets and kind to the planet.",
+        "product-3": "Innovative GPS Pet Tracking: Advanced GPS controller devices so owners can effortlessly track their pets anywhere for peace of mind.",
+        "product-4": "Space-Saving, Versatile Bedding: Compact, multi-use bedding designed for both homes and cars, ideal for urban pet owners with limited space.",
         "share-title": "Share Your Pet Story",
         "share-desc": "We’d love to hear about your furry friend’s adventures! Share your story and inspire pet lovers worldwide.",
         "share-name": "Your Name",
@@ -491,6 +612,20 @@
         "nav-products": "Produits",
         "nav-share": "Partagez Votre Histoire",
         "nav-contact": "Contact",
+        "story-title": "Notre Histoire",
+        "story-desc": "Meouf.com est une plateforme basée à Montréal, lançant en 2025, dédiée aux soins premium pour chats et chiens. Inspiré par l’amour de mon grand-père pour les animaux, nous proposons des produits de haute qualité et durables aux propriétaires au Canada et au-delà.",
+        "mission-title": "Notre Mission",
+        "mission-desc": "Enrichir la vie des chats et des chiens en fournissant des produits écologiques de premier ordre qui rendent les soins aux animaux simples, durables et joyeux, tout en honorant l’héritage d’amour de mon grand-père pour les animaux.",
+        "values-title": "Valeurs Fondamentales",
+        "value-1": "Philosophie axée sur les animaux : Inspirés par mon grand-père, nous priorisons des produits sûrs et de haute qualité qui améliorent le bien-être des animaux.",
+        "sustainability-title": "Durabilité",
+        "value-2": "Nous utilisons des matériaux et des emballages écologiques, en partenariat avec des marques éthiques pour protéger notre planète pour les générations futures.",
+        "products-title": "Produits à Venir",
+        "products-desc": "Découvrez nos essentiels premium pour animaux, lancés en 2025 :",
+        "product-1": "Nourriture Premium Fabriquée au Canada : Offrant une nourriture pour animaux de la plus haute qualité, produite localement pour garantir sécurité, nutrition et soutien aux entreprises canadiennes.",
+        "product-2": "Jouets Écologiques et Durables : Fournissant des jouets durables et respectueux de l’environnement, sûrs pour les animaux et bons pour la planète.",
+        "product-3": "Suivi GPS Innovant : Dispositifs de contrôle GPS avancés permettant aux propriétaires de suivre leurs animaux partout pour une tranquillité d’esprit.",
+        "product-4": "Literie Polyvalente et Compacte : Literie multi-usage conçue pour les maisons et les voitures, idéale pour les propriétaires d’animaux urbains avec un espace limité.",
         "share-title": "Partagez l’Histoire de Votre Animal",
         "share-desc": "Nous aimerions entendre les aventures de votre ami à fourrure ! Partagez votre histoire et inspirez les amoureux des animaux dans le monde entier.",
         "share-name": "Votre Nom",
@@ -509,8 +644,49 @@
         "footer-care": "Guides de Soins",
         "footer-faq": "FAQ (Multilingue)",
         "footer-about": "Fournitures premium pour animaux, livrées dans le monde entier."
+      },
+      es: {
+        "header-title": "Suministros para Mascotas Meouf",
+        "header-desc": "Cuidado premium para mascotas, entregado en todo el mundo. Ecológico, innovador y hecho con amor.",
+        "button-text": "Únete a Nuestra Comunidad",
+        "button-explore": "Explorar Productos",
+        "nav-story": "Nuestra Historia",
+        "nav-products": "Productos",
+        "nav-share": "Comparte Tu Historia",
+        "nav-contact": "Contacto",
+        "story-title": "Nuestra Historia",
+        "story-desc": "Meouf.com es una plataforma con sede en Montreal, que se lanzará en 2025, dedicada al cuidado premium de gatos y perros. Inspirados por el amor de mi abuelo por las mascotas, ofrecemos productos de alta calidad y sostenibles a propietarios en Canadá y más allá.",
+        "mission-title": "Nuestra Misión",
+        "mission-desc": "Enriquecer la vida de gatos y perros proporcionando productos ecológicos de primera calidad que hacen que el cuidado de las mascotas sea simple, sostenible y alegre, mientras honramos el legado de amor de mi abuelo por los animales.",
+        "values-title": "Valores Fundamentales",
+        "value-1": "Filosofía Centrada en las Mascotas: Inspirados por mi abuelo, priorizamos productos seguros y de alta calidad que mejoran el bienestar de las mascotas.",
+        "sustainability-title": "Sostenibilidad",
+        "value-2": "Utilizamos materiales y empaques ecológicos, asociándonos con marcas éticas para proteger nuestro planeta para las generaciones futuras.",
+        "products-title": "Próximos Productos",
+        "products-desc": "Descubre nuestros esenciales premium para mascotas, que se lanzarán en 2025:",
+        "product-1": "Comida Premium Hecha en Canadá: Ofreciendo comida para mascotas de la más alta calidad, producida localmente para garantizar seguridad, nutrición y apoyo a las empresas canadienses.",
+        "product-2": "Juguetes Ecológicos y Sostenibles: Proporcionando juguetes duraderos y responsables con el medio ambiente, seguros para las mascotas y amigables con el planeta.",
+        "product-3": "Seguimiento GPS Innovador: Dispositivos de control GPS avanzados para que los propietarios puedan rastrear a sus mascotas en cualquier lugar con tranquilidad.",
+        "product-4": "Camas Versátiles y Compactas: Camas multiusos diseñadas para hogares y automóviles, ideales para propietarios de mascotas urbanas con espacio limitado.",
+        "share-title": "Comparte la Historia de Tu Mascota",
+        "share-desc": "¡Nos encantaría conocer las aventuras de tu amigo peludo! Comparte tu historia e inspira a los amantes de las mascotas en todo el mundo.",
+        "share-name": "Tu Nombre",
+        "share-email": "Dirección de Correo Electrónico",
+        "share-petname": "Nombre de la Mascota",
+        "share-storytitle": "Título de la Historia",
+        "share-story": "Tu Historia",
+        "share-photo": "Subir una Foto de la Mascota (opcional)",
+        "share-submit": "Enviar Historia",
+        "share-confirmation": "¡Gracias por compartir tu historia! La revisaremos y podríamos presentarla en nuestro sitio.",
+        "footer-shop": "Tienda",
+        "footer-cats": "Para G Favos",
+        "footer-dogs": "Para Perros",
+        "footer-shipping": "Envío Global",
+        "footer-support": "Soporte",
+        "footer-care": "Guías de Cuidado de Mascotas",
+        "footer-faq": "Preguntas Frecuentes (Multilingüe)",
+        "footer-about": "Suministros premium para mascotas, entregados globalmente."
       }
-      // Add translations for es, de, zh, etc.
     };
 
     function changeLanguage(lang) {
