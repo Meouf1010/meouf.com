@@ -3,83 +3,7 @@
 // MEOUF AI PROMPT ENGINE — All GPT-4o prompt templates
 // ============================================================
 
-import type { Pet, DailyLog, VisionScan } from "@/types";
-
-// ─── TYPE DEFINITIONS ────────────────────────────────────────
-
-export interface DailyAnalysisInput {
-  pet: Pet;
-  todayLog: DailyLog;
-  recentLogs: DailyLog[];    // Last 30 days
-  baseline: PetBaseline | null;
-  weatherContext?: string;
-}
-
-export interface PetBaseline {
-  avg_appetite: number;
-  avg_energy: number;
-  avg_stool_quality: number;
-  avg_mood: number;
-  avg_thirst: number;
-  avg_health_score: number;
-  log_count: number;
-  period_days: number;
-}
-
-export interface AIAnalysisResult {
-  health_score: number;          // 0-10
-  triage_level: "normal" | "watch" | "vet_soon" | "emergency";
-  summary: string;               // 2-3 sentence plain-language summary
-  micro_shifts: MicroShift[];    // Detected deviations from baseline
-  flags: HealthFlag[];
-  suggestions: {
-    diet: DietSuggestion;
-    activity: ActivitySuggestion;
-    grooming: GroomingSuggestion;
-  };
-  positive_notes: string[];      // What's going well
-  vet_notes: string;             // Vet-export summary sentence
-}
-
-export interface MicroShift {
-  metric: string;
-  direction: "up" | "down";
-  magnitude: "slight" | "moderate" | "significant";
-  context: string;
-  days_trending: number;
-}
-
-export interface HealthFlag {
-  type: string;
-  severity: "info" | "warning" | "urgent" | "emergency";
-  message: string;
-  action: string;
-}
-
-export interface DietSuggestion {
-  portion_adjustment: "reduce_10" | "reduce_20" | "maintain" | "increase_10" | "increase_20";
-  reasoning: string;
-  specific_foods: string[];
-  foods_to_avoid: string[];
-  hydration_tip?: string;
-  supplement_suggestion?: string;
-}
-
-export interface ActivitySuggestion {
-  type: "walk" | "play" | "rest" | "swim" | "indoor_play";
-  duration_minutes: number;
-  intensity: "gentle" | "moderate" | "vigorous";
-  sessions_per_day: number;
-  specific_activities: string[];
-  avoid_activities?: string[];
-}
-
-export interface GroomingSuggestion {
-  priority: "low" | "medium" | "high";
-  tasks: string[];
-  next_reminder_days: number;
-  weather_consideration?: string;
-}
+import type { Pet, DailyLog, VisionScan, DailyAnalysisInput } from "@/types";
 
 // ─── SYSTEM PERSONA ──────────────────────────────────────────
 
@@ -510,3 +434,5 @@ export async function callOpenAI(
   const data = await response.json();
   return data.choices[0].message.content;
 }
+
+export type { DailyAnalysisInput };

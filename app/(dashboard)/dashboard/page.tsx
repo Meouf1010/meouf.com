@@ -59,6 +59,7 @@ const TRIAGE_CONFIG = {
 
 export default function DashboardPage() {
   const [activeTab, setActiveTab] = useState<"overview" | "trends" | "suggestions">("overview");
+  const [activeSuggestionTab, setActiveSuggestionTab] = useState<"diet" | "activity" | "grooming">("diet");
 
   // Mock data — replace with Supabase queries
   const pet: Pet = {
@@ -966,8 +967,8 @@ export default function DashboardPage() {
                   {(["diet", "activity", "grooming"] as const).map((tab) => (
                     <button
                       key={tab}
-                      className={`sug-tab ${activeTab === tab ? "active" : ""}`}
-                      onClick={() => setActiveTab(tab as any)}
+                      className={`sug-tab ${activeSuggestionTab === tab ? "active" : ""}`}
+                      onClick={() => setActiveSuggestionTab(tab)}
                     >
                       {tab.charAt(0).toUpperCase() + tab.slice(1)}
                     </button>
@@ -975,22 +976,20 @@ export default function DashboardPage() {
                 </div>
 
                 <div className="sug-content">
-                  {activeTab === "diet" && (
+                  {activeSuggestionTab === "diet" && (
                     <>
                       <div style={{ fontWeight: 500, color: "var(--bark)", marginBottom: "6px", fontSize: "13px" }}>
-                        Portions: <span style={{ color: "var(--sage)" }}>Maintain</span>
+                        Portions: <span style={{ color: "var(--sage)" }}>
+                          {todayLog.ai_suggestions.diet.portion_adjustment.charAt(0).toUpperCase() + 
+                           todayLog.ai_suggestions.diet.portion_adjustment.slice(1)}
+                        </span>
                       </div>
                       <p style={{ fontSize: "13px", marginBottom: "10px" }}>
                         {todayLog.ai_suggestions.diet.reasoning}
                       </p>
-                      <ul className="sug-list">
-                        {todayLog.ai_suggestions.diet.specific_foods?.map((f) => (
-                          <li key={f}>{f}</li>
-                        ))}
-                      </ul>
                     </>
                   )}
-                  {activeTab === "activity" && (
+                  {activeSuggestionTab === "activity" && (
                     <>
                       <div style={{ fontWeight: 500, color: "var(--bark)", marginBottom: "6px", fontSize: "13px" }}>
                         {todayLog.ai_suggestions.activity.duration_minutes} min ·{" "}
@@ -1005,7 +1004,7 @@ export default function DashboardPage() {
                       </ul>
                     </>
                   )}
-                  {activeTab === "grooming" && (
+                  {activeSuggestionTab === "grooming" && (
                     <>
                       <div style={{ fontWeight: 500, color: "var(--bark)", marginBottom: "6px", fontSize: "13px" }}>
                         Priority:{" "}
